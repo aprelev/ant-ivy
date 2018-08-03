@@ -31,6 +31,14 @@ public final class ExtendableItemHelper {
 
     private static final char separator = '.';
 
+    /**
+     * Decode qualified attribute name from blob.
+     *
+     * @param blob Encoded attribute name
+     * @param prefix Prefix used during encoding
+     * @return String
+     * @see #encodeAttribute(String, String)
+     */
     public static String decodeAttribute(String blob, String prefix) {
         // Decoding <qualifier>:<attribute> from 
         //   <pre><qlen><sep><qualifier><sep><attribute>
@@ -52,6 +60,15 @@ public final class ExtendableItemHelper {
         return builder.substring(cur);
     }
 
+    /**
+     * Encode qualified attribute name into blob
+     * to be used in XML report.
+     *
+     * @param attribute Qualified (or unqualified) attribute name
+     * @param prefix Prefix
+     * @return String
+     * @see #decodeAttribute(String, String)
+     */
     public static String encodeAttribute(String attribute, String prefix) {
         StringBuilder builder = new StringBuilder(
             attribute.length() + prefix.length() + 5
