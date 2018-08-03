@@ -192,7 +192,6 @@ public class XmlReportParser {
                         String name = attributes.getValue("module");
                         String branch = attributes.getValue("branch");
                         String revision = attributes.getValue("revision");
-                        Map<String, String> extraAttributes = new HashMap<>();
                         mRevisionId = ModuleRevisionId.newInstance(organisation, name, branch, revision,
                             ExtendableItemHelper.getExtraAttributes(attributes, "extra-"));
                         break;
